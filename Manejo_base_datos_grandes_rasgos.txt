@@ -1,0 +1,14 @@
+-telegram bot manejo de base de datos a grandes rasgos:
+
+*main:
+1)db=SQL(db_name)
+objeto db instancia de SQL cuyo argumento es db_name 
+2)que viene del diccionario options (generado en conf.py). open_env abre el archivo .env y hace un parseo de las variables.
+(*duda: yo no incluyo la variable DBFILE=telegram.db en .env, como hice entonces en las anteriores pruebas para setearla?)
+
+3)el objeto db luego es usado como argumento de las clases Updates y Message
+
+4)
+
+
+

@@ -1,0 +1,46 @@
+1. Que significa el `ON CONFLICT REPLACE` en la tabla `message` y que pasaria si no estuviera?
+
+El ON CONFLICT es una clausula aplicable a datos de tipo UNIQUE o PRIMARY KEY. Cuando ocurre
+una violacion al principio de UNIQUE CONSTRAINT, esta clausula borra las celdas pre-existentes
+de modo que puedan ser actualizadas con informacion nueva. Sin embargo, se puede evitar
+el riesgo de este error al incluir tambien una clausula "or IGNORE" al momento de hacer un INSERT INTO.
+
+2. Cuales serian las ventajas y desventajas de pasar `telegram.py` a un paradigma orientado a objectos?
+
+Ventajas: 
+-Mayor generalizacion de las distintas acciones que se pueden tomar con la respuesta HTTP de getUpdates 
+-Almacenamiento del estado
+-Mejoraría la lectura del codigo porque se volvería todo muchas modularizado
+
+Desventajas: 
+-Mayor trabajo para acciones relativamente sencillas que se pueden resolver con funciones 
+
+3. Hay algo que pueda generalizarse en `models.py` ?
+
+La variable query en Update.last_update podria tomar un LIMIT definido por fuera de la clase, por ejemplo, en el 
+main de modo que podríamos tener mayor control sobre cuantos resultados queremos obtener con la solicitud.
+
+
+4. Si solo **ciertos** usuarios pudieran hablar con el bot, que habria que modificar para que eso sea posible?
+
+La API del bot de telegram incluye una clase llamada ChatMember que tiene un atributo ChatMemberBanned. Se puede 
+utilizar tal atributo para banear automaticamente a todos los usuarios menos unos particulares permitidos.
+
+allowed_usernames: ["juanperez1", "mariaantonieta93", "albertogomez45" ]
+
+class Username
+def getusername=telegram.getupdates(token)["message"]["from"]["username"]
+
+
+
+def banallusers():
+    username=Username.getusername()
+    if username not in allowed_usernames:
+        chatmember=ChatMember()
+        chatmember.ChatMemberBanned(username)
+    else:
+        continue
+
+        
+        
+
